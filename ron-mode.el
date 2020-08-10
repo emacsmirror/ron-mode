@@ -3,7 +3,7 @@
 ;; Author: Daniel Hutzley <endergeryt@gmail.com>
 ;; URL: https://chiselapp.com/user/Hutzdog/repository/ron-mode/home
 ;; Version: 1
-;; Package-Requires: ((emacs "26.1"))
+;; Package-Requires: ((emacs "24.5.1"))
 ;; Keywords: languages
 
 
