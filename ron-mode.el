@@ -5,12 +5,18 @@
 ;; Some inspiration was drawn from Devin Schwab's RON major mode, most predominantly in the indentation function.
 
 ;; Author: Daniel Hutzley <endergeryt@gmail.com>
-;; URL: None
-;; Version: 1.0
-;; Package-Requires: ((emacs 27.1))
-;; Keywords: rust
+;; URL: https://chiselapp.com/user/Hutzdog/repository/ron-mode/home
+;; Version: 1
+;; Package-Requires: ((emacs "26.1"))
+;; Keywords: languages
 
-(defvar ron-highlights nil "Highlights for Rusty Object Notation")
+
+;;; Commentary:
+;; This package adds syntax highlighting for Rusty Object Notation, for more info see https://github.com/ron-rs/ron
+
+;;; Code:
+
+(defvar ron-highlights nil "Highlights for Rusty Object Notation.")
 (defvar ron-indent-offset 4)
 
 (setq ron-highlights
@@ -27,7 +33,7 @@
         ; Keyword face
         ("[a-z]\\([a-zA-Z\\-]*\\)" . font-lock-keyword-face)))
 
-(defun ron/indent-line ()
+(defun ron-indent-line () "Handles line indentation."
   (interactive)
   (let ((indent-col 0))
     (save-excursion
@@ -51,8 +57,12 @@
   (setq comment-start "//")
   (setq comment-end "")
   (setq tab-width ron-indent-offset)
-  (setq indent-line-function 'ron/indent-line)
+  (setq indent-line-function #'ron-indent-line)
   (setq indent-tabs-mode nil))
 
 (add-to-list 'auto-mode-alist '("\\.ron" . ron-mode))
 (provide 'ron-mode)
+
+(provide 'ron-mode)
+
+;;; ron-mode.el ends here
