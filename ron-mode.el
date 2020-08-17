@@ -12,6 +12,7 @@
 
 ;; Copyright (C) 2020 Daniel Hutzley
 ;; This work is licensed under the terms of the BSD 2-Clause License ( https://opensource.org/licenses/BSD-2-Clause )
+;; SPDX-License-Identifier: BSD-2-Clause
 ;; Some inspiration was drawn from Devin Schwab's RON major mode, most predominantly in the indentation function.
 
 ;;; Code:
@@ -33,7 +34,8 @@
         ; Keyword face
         ("[a-z]\\([a-zA-Z\\-]*\\)" . font-lock-keyword-face)))
 
-(defun ron-indent-line () "Handles line indentation."
+(defun ron-indent-line ()
+  "Handles line indentation."
   (interactive)
   (let ((indent-col 0))
     (save-excursion
@@ -47,7 +49,7 @@
     (save-excursion
       (back-to-indentation)
       (when (and (looking-at "[]}\\)]") (>= indent-col ron-mode-indent-offset))
-        (setq indent-col (- indent-col ron-mode-indent-offset))))
+        (setq indent-col (- indent-col ron-indent-offset))))
     (indent-line-to indent-col)))
 
 
@@ -61,8 +63,6 @@
   (setq indent-tabs-mode nil))
 
 (add-to-list 'auto-mode-alist '("\\.ron" . ron-mode))
-(provide 'ron-mode)
-
 (provide 'ron-mode)
 
 ;;; ron-mode.el ends here
