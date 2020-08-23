@@ -44,11 +44,11 @@
           (while t
             (backward-up-list 1)
             (when (looking-at "[[{\\(]")
-              (setq indent-col (+ indent-col ron-mode-indent-offset))))
+              (setq indent-col (+ indent-col ron-indent-offset))))
         (error nil)))
     (save-excursion
       (back-to-indentation)
-      (when (and (looking-at "[]}\\)]") (>= indent-col ron-mode-indent-offset))
+      (when (and (looking-at "[]}\\)]") (>= indent-col ron-indent-offset))
         (setq indent-col (- indent-col ron-indent-offset))))
     (indent-line-to indent-col)))
 
