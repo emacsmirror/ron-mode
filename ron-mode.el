@@ -1,5 +1,10 @@
 ;;; ron-mode.el --- Rusty Object Notation mode -*- lexical-binding: t; -*-
 
+;; Copyright (C) 2020 Daniel Hutzley
+;; This work is licensed under the terms of the BSD 2-Clause License ( https://opensource.org/licenses/BSD-2-Clause )
+;; Some inspiration was drawn from Devin Schwab's RON major mode, most predominantly in the indentation function.
+;; SPDX-License-Identifier: BSD-2-Clause
+
 ;; Author: Daniel Hutzley <endergeryt@gmail.com>
 ;; URL: https://chiselapp.com/user/Hutzdog/repository/ron-mode/home
 ;; Version: 1
@@ -8,12 +13,7 @@
 
 
 ;;; Commentary:
-;; This package adds syntax highlighting for Rusty Object Notation, for more info see https://github.com/ron-rs/ron
-
-;; Copyright (C) 2020 Daniel Hutzley
-;; This work is licensed under the terms of the BSD 2-Clause License ( https://opensource.org/licenses/BSD-2-Clause )
-;; SPDX-License-Identifier: BSD-2-Clause
-;; Some inspiration was drawn from Devin Schwab's RON major mode, most predominantly in the indentation function.
+;; Syntax highlights Rusty Object Notation, see https://github.com/ron-rs/ron
 
 ;;; Code:
 
@@ -24,7 +24,7 @@
       '(; Comments
         ("//.*" . font-lock-comment-face)
 
-        ; Constant face
+       ; Constant face
         ("true\\|false" . font-lock-constant-face)
         ("[0-9]+"       . font-lock-constant-face)
 
