@@ -19,10 +19,17 @@
 
 (defvar ron-highlights nil "Highlights for Rusty Object Notation.")
 (defvar ron-indent-offset 4)
+(defvar ron-mode-syntax-table nil "Ron Mode Syntax Table")
+
+(setq ron-mode-syntax-table
+      (let ((synTable (make-syntax-table)))
+        (modify-syntax-entry ?\/ ". 12b" synTable)
+        (modify-syntax-entry ?\n "> b" synTable)
+        synTable))
 
 (setq ron-highlights
       '(; Comments
-        ("//.*" . font-lock-comment-face)
+        ("//.*\\(TODO\\|FIXME\\|XXX\\|BUG\\).*" . (1 font-lock-warning-face))
 
        ; Constant face
         ("true\\|false" . font-lock-constant-face)
@@ -56,8 +63,6 @@
 (define-derived-mode ron-mode prog-mode "ron"
   "Major mode for Rusty Object Notation"
   (setq font-lock-defaults '(ron-highlights))
-  (setq comment-start "//")
-  (setq comment-end "")
   (setq tab-width ron-indent-offset)
   (setq indent-line-function #'ron-indent-line)
   (setq indent-tabs-mode nil))
